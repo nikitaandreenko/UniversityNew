@@ -11,14 +11,14 @@ public class StudentService{
 
     public StudentService (){
     }
-    public void addStudent(Student student){
-       studentRepository.addStudent(student);
+    public void addStudent(Student newStudent){
+       studentRepository.addStudent(newStudent);
     }
     public void deleteStudent (Student student){
         studentRepository.deleteStudent(student);
     }
-    public void setStudent(int pos, Student student){
-        studentRepository.setStudent(pos, student);
+    public void setStudent(int pos, Student newStudent){
+        studentRepository.setStudent(pos, newStudent);
     }
 
     public void sortedStudents (StudentRepository studentRepository){
