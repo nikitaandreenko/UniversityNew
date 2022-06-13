@@ -9,9 +9,10 @@ import java.util.Comparator;
 
 public class GroupService {
 
-    private GroupRepository groupRepository = new GroupRepository();
+    private GroupRepository groupRepository;
 
     public GroupService() {
+        groupRepository = new GroupRepository();
     }
 
     public void addGroup(Group group) {
@@ -26,13 +27,13 @@ public class GroupService {
         groupRepository.setGroups(pos, group);
     }
 
-    public void allGroup(GroupRepository groupRepository) {
+    public void allGroup(GroupService groupService) {
         groupRepository.groups
                 .stream()
                 .forEach(System.out::println);
     }
 
-    public void yearsGroup(GroupRepository groupRepository) {
+    public void yearsGroup(GroupService groupService) {
         groupRepository
                 .groups.stream()
                 .filter(group -> group.getYearGraduation() >= 2011 && group.getYearGraduation() <= 2014)

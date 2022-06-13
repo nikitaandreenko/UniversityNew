@@ -12,9 +12,10 @@ import java.util.function.Function;
 
 public class TeacherService {
 
-    private TeacherRepository teacherRepository = new TeacherRepository();
+    private TeacherRepository teacherRepository;
 
     public TeacherService() {
+        teacherRepository = new TeacherRepository();
     }
 
     public void addTeacher(Teacher teacher) {
@@ -30,13 +31,13 @@ public class TeacherService {
     }
 
 
-    public void allTeachers(TeacherRepository teacherRepository) {
+    public void allTeachers(TeacherService teacherService) {
         teacherRepository
                 .teachers.stream()
                 .forEach(System.out::println);
     }
 
-    public void teachersRetired(TeacherRepository teacherRepository) {
+    public void teachersRetired(TeacherService teacherService) {
         teacherRepository
                 .teachers.stream()
                 .filter(teacher ->
@@ -47,7 +48,7 @@ public class TeacherService {
                     System.out.println(teacher);
                 });
     }
-    public void employees(TeacherRepository teacherRepository) {
+    public void employees(TeacherService teacherService) {
         teacherRepository
                 .teachers.stream()
                 .sorted(Comparator.comparing(Teacher::getSurname))
@@ -58,7 +59,7 @@ public class TeacherService {
                 );
     }
 
-    public Methodist comparator (Teacher teacher, TeacherRepository teacherRepository){
+    public Methodist comparator (Teacher teacher, TeacherService teacherService){
         Function<Teacher, Methodist> converter =
                 teacher1 -> {
                     return new Methodist(teacher.getName(), teacher.getSurname(), teacher.getAge(),
@@ -67,7 +68,7 @@ public class TeacherService {
         return converter.apply(teacher);
     }
 
-    public void salaries(TeacherRepository teacherRepository) {
+    public void salaries(TeacherService teacherService) {
         teacherRepository
                 .teachers.stream()
                 .filter(teacher ->teacher.getSalary() > 3000)

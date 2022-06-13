@@ -7,21 +7,22 @@ import com.company.repository.StudentRepository;
 import java.util.Comparator;
 
 public class StudentService{
-    private StudentRepository studentRepository = new StudentRepository();
+    private StudentRepository studentRepository;
 
     public StudentService (){
+        studentRepository = new StudentRepository();
     }
-    public void addStudent(Student newStudent){
-       studentRepository.addStudent(newStudent);
+    public void addStudent(Student student){
+       studentRepository.addStudent(student);
     }
     public void deleteStudent (Student student){
         studentRepository.deleteStudent(student);
     }
-    public void setStudent(int pos, Student newStudent){
-        studentRepository.setStudent(pos, newStudent);
+    public void setStudent(int pos, Student student){
+        studentRepository.setStudent(pos, student);
     }
 
-    public void sortedStudents (StudentRepository studentRepository){
+    public void sortedStudents (StudentService studentService){
         studentRepository
                 .students.stream()
                 .sorted()

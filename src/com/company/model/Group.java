@@ -1,19 +1,22 @@
 package com.company.model;
 
+import com.company.repository.StudentRepository;
+import com.company.service.StudentService;
+
 import java.util.ArrayList;
 
 public class Group {
     private int name;
     private int course;
-    private ArrayList<Student> students;
+    private StudentService studentService;
     private Teacher teacher;
     private int yearAdmission;
     private int yearGraduation;
 
-    public Group(int name, int course, ArrayList<Student> students, Teacher teacher, int yearAdmission, int yearGraduation) {
+    public Group(int name, int course, StudentService studentService, Teacher teacher, int yearAdmission, int yearGraduation) {
         this.name = name;
         this.course = course;
-        this.students = students;
+        this.studentService = studentService;
         this.teacher = teacher;
         this.yearAdmission = yearAdmission;
         this.yearGraduation = yearGraduation;
@@ -35,12 +38,13 @@ public class Group {
         this.course = course;
     }
 
-    public ArrayList<Student> getStudents() {
-        return students;
+
+    public StudentService studentService() {
+        return studentService;
     }
 
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
+    public void setStudentRepository(StudentService studentService) {
+        this.studentService = studentService;
     }
 
     public Teacher getTeacher() {
@@ -72,7 +76,7 @@ public class Group {
         return "Group{" +
                 "name=" + name +
                 ", course=" + course +
-                ", students=" + students +
+                ", students=" + studentService +
                 ", teacher=" + teacher +
                 ", yearAdmission=" + yearAdmission +
                 ", yearGraduation=" + yearGraduation +
