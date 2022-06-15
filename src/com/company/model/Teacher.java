@@ -6,7 +6,8 @@ import com.company.repository.TeacherRepository;
 
 public class Teacher extends People {
 
-    private int salary;
+    public int salary;
+
     public Teacher(String name, String surname, int age, Address address, String gender) {
         super(name, surname, age, address, gender);
     }
@@ -61,19 +62,9 @@ public class Teacher extends People {
         super.setGender(gender);
     }
 
-    public int getSalary() {
-        return salary;
-    }
-
-    public void setSalary(int day) {
-        this.salary = day*1000;
-    }
-
     @Override
     public String toString() {
         return "teacher: " + super.toString();
     }
-
-
 
 }

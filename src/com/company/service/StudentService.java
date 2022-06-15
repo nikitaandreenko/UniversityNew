@@ -7,7 +7,7 @@ import com.company.repository.StudentRepository;
 import java.util.Comparator;
 
 public class StudentService{
-    private StudentRepository studentRepository;
+    public StudentRepository studentRepository;
 
     public StudentService (){
         studentRepository = new StudentRepository();

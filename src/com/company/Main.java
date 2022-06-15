@@ -27,7 +27,7 @@ public class Main {
         studentService1.addStudent(student3);
         Address addressTeacher1 = new Address("New York", "5 avenu", 24, 137);
         Teacher teacher1 = new Teacher("Vanessa", "Uotson", 65, addressTeacher1, "female");
-        teacher1.setSalary(2);
+        teacherService.setSalaryTeacher(2, teacher1);
         System.out.println(AgeTeacherUtil.ageTeacherCheck(teacher1));
         Group group1 = new Group(1, 3, studentService1, teacher1, 2007, 2012);
         Address addressStudent4 = new Address("Liverpool", "Etihad", 24, 123);
@@ -42,7 +42,7 @@ public class Main {
         Address addressTeacher2 = new Address("Alabama", "7 street", 25, 138);
         Teacher teacher2 = new Teacher("Shon", "Petersen", 25, addressTeacher2, "male");
         System.out.println(AgeTeacherUtil.ageTeacherCheck(teacher2));
-        teacher2.setSalary(10);
+        teacherService.setSalaryTeacher(10, teacher2);
         Group group2 = new Group(2, 4, studentService2, teacher2, 2006, 2010);
         Address addressStudent7 = new Address("Moscow", "Marksa", 13, 167);
         Address addressStudent8 = new Address("Rasan", "Radugnaja", 20, 11);
@@ -56,7 +56,7 @@ public class Main {
         Address addressTeacher3 = new Address("Otava", "10 street", 67, 123);
         Teacher teacher3 = new Teacher("Samanta", "Robson", 67, addressTeacher3, "female");
         System.out.println(AgeTeacherUtil.ageTeacherCheck(teacher3));
-        teacher3.setSalary(15);
+        teacherService.setSalaryTeacher(15, teacher3);
         teacherService.addTeacher(teacher1);
         teacherService.addTeacher(teacher2);
         teacherService.addTeacher(teacher3);

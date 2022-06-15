@@ -12,7 +12,7 @@ import java.util.function.Function;
 
 public class TeacherService {
 
-    private TeacherRepository teacherRepository;
+    public TeacherRepository teacherRepository;
 
     public TeacherService() {
         teacherRepository = new TeacherRepository();
@@ -28,6 +28,14 @@ public class TeacherService {
 
     public void setTeacherRepository(int pos, Teacher teacher) {
         teacherRepository.setTeacher(pos, teacher);
+    }
+
+    public int getSalaryTeacher(Teacher teacher) {
+        return teacher.salary;
+    }
+
+    public void setSalaryTeacher(int day, Teacher teacher) {
+        teacher.salary = day * 1000;
     }
 
 
@@ -48,33 +56,35 @@ public class TeacherService {
                     System.out.println(teacher);
                 });
     }
+
     public void employees(TeacherService teacherService) {
         teacherRepository
                 .teachers.stream()
                 .sorted(Comparator.comparing(Teacher::getSurname))
                 .forEach(teacher -> {
-                    System.out.println("Employees: ");
-                    System.out.println(teacher);
+                            System.out.println("Employees: ");
+                            System.out.println(teacher);
                         }
                 );
     }
 
-    public Methodist comparator (Teacher teacher, TeacherService teacherService){
+    public Methodist comparator(Teacher teacher, TeacherService teacherService) {
         Function<Teacher, Methodist> converter =
                 teacher1 -> {
                     return new Methodist(teacher.getName(), teacher.getSurname(), teacher.getAge(),
-                            teacher.getAddress(), teacher.getGender(), teacherRepository.teachers );
+                            teacher.getAddress(), teacher.getGender(), teacherRepository.teachers);
                 };
         return converter.apply(teacher);
     }
 
+
     public void salaries(TeacherService teacherService) {
         teacherRepository
                 .teachers.stream()
-                .filter(teacher ->teacher.getSalary() > 3000)
+                .filter(teacher -> teacherService.getSalaryTeacher(teacher) > 3000)
                 .forEach(teacher -> {
                     System.out.println("Teacher salary more 10000:" + teacher.getName() + " " + teacher.getSurname());
-                    System.out.println(teacher.getSalary());
+                    System.out.println(teacherService.getSalaryTeacher(teacher));
                 });
     }
 }
