@@ -1,6 +1,7 @@
 package com.company.service;
 
 import com.company.model.Methodist;
+import com.company.model.Student;
 import com.company.model.Teacher;
 import com.company.repository.TeacherRepository;
 
@@ -20,6 +21,10 @@ public class TeacherService {
 
     public void addTeacher(Teacher teacher) {
         teacherRepository.addTeacher(teacher);
+    }
+
+    public void addTeachersGroup (ArrayList<Teacher> teachersNew){
+        teacherRepository.addTeachersGroup(teachersNew);
     }
 
     public void deleteTeacher(Teacher teacher) {

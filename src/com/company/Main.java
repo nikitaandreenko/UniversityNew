@@ -1,76 +1,63 @@
 package com.company;
 
 import com.company.model.*;
-import com.company.repository.GroupRepository;
-import com.company.repository.StudentRepository;
-import com.company.repository.TeacherRepository;
 import com.company.service.GroupService;
 import com.company.service.StudentService;
 import com.company.service.TeacherService;
 import com.company.util.AgeTeacherUtil;
+import com.company.util.ReadingFiles;
+
+import java.util.ArrayList;
 
 public class Main {
     public static void main(String[] args) {
+        StudentService studentServiceAllStudents = new StudentService();
+        studentServiceAllStudents.addStudentsGroup(ReadingFiles.studentsFiles("students.txt"));
         StudentService studentService1 = new StudentService();
+        studentService1.addStudent(studentServiceAllStudents.studentRepository.students.get(0));
+        studentService1.addStudent(studentServiceAllStudents.studentRepository.students.get(1));
+        studentService1.addStudent(studentServiceAllStudents.studentRepository.students.get(2));
+
         StudentService studentService2 = new StudentService();
+        studentService2.addStudent(studentServiceAllStudents.studentRepository.students.get(3));
+        studentService2.addStudent(studentServiceAllStudents.studentRepository.students.get(4));
+        studentService2.addStudent(studentServiceAllStudents.studentRepository.students.get(5));
+
         StudentService studentService3 = new StudentService();
-        TeacherService teacherService = new TeacherService();
+        studentService3.addStudent(studentServiceAllStudents.studentRepository.students.get(6));
+        studentService3.addStudent(studentServiceAllStudents.studentRepository.students.get(7));
+        studentService3.addStudent(studentServiceAllStudents.studentRepository.students.get(8));
+
+        TeacherService teacherServiceAllTeachers = new TeacherService();
+        teacherServiceAllTeachers.addTeachersGroup(ReadingFiles.teachersFiles("teachers.txt"));
+
+        teacherServiceAllTeachers.setSalaryTeacher(2, teacherServiceAllTeachers.teacherRepository.teachers.get(0));
+        System.out.println(AgeTeacherUtil.ageTeacherCheck(teacherServiceAllTeachers.teacherRepository.teachers.get(0)));
+
+        System.out.println(AgeTeacherUtil.ageTeacherCheck(teacherServiceAllTeachers.teacherRepository.teachers.get(1)));
+        teacherServiceAllTeachers.setSalaryTeacher(10, teacherServiceAllTeachers.teacherRepository.teachers.get(1));
+
+        System.out.println(AgeTeacherUtil.ageTeacherCheck(teacherServiceAllTeachers.teacherRepository.teachers.get(2)));
+        teacherServiceAllTeachers.setSalaryTeacher(15, teacherServiceAllTeachers.teacherRepository.teachers.get(2));
+
         GroupService groupService = new GroupService();
-        Address addressStudent1 = new Address("New York", "5 avenu", 15, 136);
-        Address addressStudent2 = new Address("Alabama", "linciln", 23, 16);
-        Address addressStudent3 = new Address("Manchester", "Old Trafford", 12, 13);
-        Student student1 = new Student("Nik", "Genson", 21, addressStudent1, "male");
-        Student student2 = new Student("Teresa", "Watkinson", 20, addressStudent2, "female");
-        Student student3 = new Student("Jon", "Terry", 23, addressStudent3, "male");
-        studentService1.addStudent(student1);
-        studentService1.addStudent(student2);
-        studentService1.addStudent(student3);
-        Address addressTeacher1 = new Address("New York", "5 avenu", 24, 137);
-        Teacher teacher1 = new Teacher("Vanessa", "Uotson", 65, addressTeacher1, "female");
-        teacherService.setSalaryTeacher(2, teacher1);
-        System.out.println(AgeTeacherUtil.ageTeacherCheck(teacher1));
-        Group group1 = new Group(1, 3, studentService1, teacher1, 2007, 2012);
-        Address addressStudent4 = new Address("Liverpool", "Etihad", 24, 123);
-        Address addressStudent5 = new Address("Minsk", "Lenina", 24, 124);
-        Address addressStudent6 = new Address("Gomel", "Stroiyelej", 24, 12);
-        Student student4 = new Student("Lara", "Sarry", 20, addressStudent4, "female");
-        Student student5 = new Student("Aleksej", "Basiljev", 20, addressStudent5, "male");
-        Student student6 = new Student("Tatjana", "Stapanova", 18, addressStudent6, "female");
-        studentService2.addStudent(student4);
-        studentService2.addStudent(student5);
-        studentService2.addStudent(student6);
-        Address addressTeacher2 = new Address("Alabama", "7 street", 25, 138);
-        Teacher teacher2 = new Teacher("Shon", "Petersen", 25, addressTeacher2, "male");
-        System.out.println(AgeTeacherUtil.ageTeacherCheck(teacher2));
-        teacherService.setSalaryTeacher(10, teacher2);
-        Group group2 = new Group(2, 4, studentService2, teacher2, 2006, 2010);
-        Address addressStudent7 = new Address("Moscow", "Marksa", 13, 167);
-        Address addressStudent8 = new Address("Rasan", "Radugnaja", 20, 11);
-        Address addressStudent9 = new Address("Grodno", "Naberegnaja", 25, 67);
-        Student student7 = new Student("Basilij", "Ivanov", 17, addressStudent7, "male");
-        Student student8 = new Student("Svetlana", "Kravtsova", 18, addressStudent8, "female");
-        Student student9 = new Student("Kristina", "Pavlova", 18, addressStudent9, "female");
-        studentService3.addStudent(student7);
-        studentService3.addStudent(student8);
-        studentService3.addStudent(student9);
-        Address addressTeacher3 = new Address("Otava", "10 street", 67, 123);
-        Teacher teacher3 = new Teacher("Samanta", "Robson", 67, addressTeacher3, "female");
-        System.out.println(AgeTeacherUtil.ageTeacherCheck(teacher3));
-        teacherService.setSalaryTeacher(15, teacher3);
-        teacherService.addTeacher(teacher1);
-        teacherService.addTeacher(teacher2);
-        teacherService.addTeacher(teacher3);
-        teacherService.allTeachers(teacherService);
-        Group group3 = new Group(3, 5, studentService2, teacher3, 2009, 2014);
+        Group group1 = new Group(1, 3, studentService1.studentRepository.students,
+                teacherServiceAllTeachers.teacherRepository.teachers.get(0), 2007, 2012);
+        Group group2 = new Group(2, 4, studentService2.studentRepository.students,
+                teacherServiceAllTeachers.teacherRepository.teachers.get(1), 2006, 2010);
+        Group group3 = new Group(3, 5, studentService3.studentRepository.students,
+                teacherServiceAllTeachers.teacherRepository.teachers.get(2), 2009, 2014);
+
         groupService.addGroup(group1);
         groupService.addGroup(group2);
         groupService.addGroup(group3);
         groupService.allGroup(groupService);
-        teacherService.teachersRetired(teacherService);
-        teacherService.salaries(teacherService);
+        teacherServiceAllTeachers.teachersRetired(teacherServiceAllTeachers);
+        teacherServiceAllTeachers.salaries(teacherServiceAllTeachers);
         groupService.yearsGroup(groupService);
-        teacherService.employees(teacherService);
-        Methodist methodist1 = teacherService.comparator(teacher2, teacherService);
+        teacherServiceAllTeachers.employees(teacherServiceAllTeachers);
+        Methodist methodist1 = teacherServiceAllTeachers.comparator
+                (teacherServiceAllTeachers.teacherRepository.teachers.get(1), teacherServiceAllTeachers);
         System.out.println(methodist1);
         studentService1.sortedStudents(studentService1);
         studentService2.sortedStudents(studentService2);

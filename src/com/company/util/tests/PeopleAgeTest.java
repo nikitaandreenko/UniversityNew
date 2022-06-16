@@ -2,6 +2,8 @@ package com.company.util.tests;
 
 import com.company.model.Address;
 import com.company.model.Student;
+import com.company.service.StudentService;
+import com.company.util.ReadingFiles;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -10,22 +12,23 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class PeopleAgeTest {
-    Address addressStudent1;
-    Student student1;
+    StudentService studentService;
+    Student student;
 
     @Before
     public void setUp() throws Exception {
-        addressStudent1 = new Address("New York", "5 avenu", 15, 136);
-        student1 = new Student("Nik", "Genson", 21, addressStudent1, "male");
+        studentService = new StudentService();
+        studentService.addStudentsGroup(ReadingFiles.studentsFiles("students.txt"));
+        student = studentService.studentRepository.students.get(0);
     }
 
     @Test
     public void setAge() {
-        student1.setAge(20);
-        Assert.assertTrue(student1.getAge() == 20);
-        student1.setAge(-5);
-        Assert.assertEquals(0, student1.getAge());
-        Assert.assertFalse(student1.getAge() == -5);
+        student.setAge(20);
+        Assert.assertTrue(student.getAge() == 20);
+        student.setAge(-5);
+        Assert.assertEquals(0, student.getAge());
+        Assert.assertFalse(student.getAge() == -5);
     }
 
     @After

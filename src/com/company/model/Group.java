@@ -8,15 +8,15 @@ import java.util.ArrayList;
 public class Group {
     private int name;
     private int course;
-    private StudentService studentService;
+    private ArrayList <Student> students;
     private Teacher teacher;
     private int yearAdmission;
     private int yearGraduation;
 
-    public Group(int name, int course, StudentService studentService, Teacher teacher, int yearAdmission, int yearGraduation) {
+    public Group(int name, int course, ArrayList <Student> students, Teacher teacher, int yearAdmission, int yearGraduation) {
         this.name = name;
         this.course = course;
-        this.studentService = studentService;
+        this.students = students;
         this.teacher = teacher;
         this.yearAdmission = yearAdmission;
         this.yearGraduation = yearGraduation;
@@ -38,13 +38,12 @@ public class Group {
         this.course = course;
     }
 
-
-    public StudentService studentService() {
-        return studentService;
+    public ArrayList<Student> getStudents() {
+        return students;
     }
 
-    public void setStudentRepository(StudentService studentService) {
-        this.studentService = studentService;
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
     }
 
     public Teacher getTeacher() {
@@ -76,7 +75,7 @@ public class Group {
         return "Group{" +
                 "name=" + name +
                 ", course=" + course +
-                ", students=" + studentService +
+                ", students=" + students +
                 ", teacher=" + teacher +
                 ", yearAdmission=" + yearAdmission +
                 ", yearGraduation=" + yearGraduation +
