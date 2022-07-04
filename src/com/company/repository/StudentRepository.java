@@ -4,27 +4,48 @@ import com.company.model.Student;
 import com.company.util.ReadingFiles;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class StudentRepository {
 
     ReadingFiles readingFiles;
-    public ArrayList<Student> students;
+    public List<Student> students;
 
-    public StudentRepository(){
+    public StudentRepository() {
         this.students = new ArrayList<>();
     }
 
-    public void addStudent (Student student){
+    public void addStudent(Student student) {
         students.add(student);
     }
-    public void addStudentsGroup (ArrayList<Student> studentsNew){
+
+    public List<Student> getAllStudents(List<Student> studentsNew) {
         students.addAll(studentsNew);
-    }
-    public void deleteStudent (Student student){
-        students.remove(student);
-    }
-    public void setStudent (int pos, Student student){
-        students.set(pos, student);
+        return students;
     }
 
+    public Student getByIdStudent(int id, List<Student> students) {
+        for (Student st : students) {
+            if (st.getId() == id) {
+                return st;
+            }
+        }
+        return null;
+    }
+
+    public void updateStudent(int id, Student student) {
+        for (Student st : students) {
+            if (st.getId() == id) {
+                students.set(id, student);
+            }
+        }
+    }
+
+    public void deleteStudent(int id) {
+        for (Student st : students) {
+            if (st.getId() == id) {
+                students.remove(st);
+            }
+        }
+    }
 }

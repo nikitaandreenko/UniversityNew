@@ -3,9 +3,11 @@ package com.company.service;
 import com.company.model.Group;
 import com.company.model.Student;
 import com.company.repository.GroupRepository;
+import com.company.repository.StudentRepository;
 
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 
 public class GroupService {
 
@@ -19,12 +21,21 @@ public class GroupService {
         groupRepository.addGroup(group);
     }
 
-    public void deleteGroup(Group group) {
-        groupRepository.deleteGroup(group);
+    public List<Group> getAllGroups(List<Group> groupsNew) {
+        groupRepository.getAllGroups(groupsNew);
+        return groupRepository.groups;
     }
 
-    public void setGroup(int pos, Group group) {
-        groupRepository.setGroups(pos, group);
+    public Group getByIdGroup(int id, GroupRepository groupRepository) {
+        return groupRepository.getByIdGroup(id, groupRepository.groups);
+    }
+
+    public void updateGroup(int id, Group group) {
+        groupRepository.updateGroup(id, group);
+    }
+
+    public void deleteGroup(int id) {
+        groupRepository.deleteGroup(id);
     }
 
     public void allGroup(GroupService groupService) {

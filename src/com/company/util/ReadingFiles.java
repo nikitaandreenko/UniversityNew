@@ -4,10 +4,9 @@ import com.company.model.Address;
 import com.company.model.Student;
 import com.company.model.Teacher;
 
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.nio.CharBuffer;
+import java.rmi.StubNotFoundException;
 import java.util.ArrayList;
 
 import static java.lang.Integer.parseInt;
@@ -26,17 +25,20 @@ public class ReadingFiles {
             String[] str = data.split("\n");
             for (String str1 : str) {
                 String[] student = str1.split("-");
-                String nameStudent = student[0];
-                String surnameStudent = student[1];
-                int ageStudent = parseInt(student[2]);
-                String sityStudent = student[3];
-                String streetStudent = student[4];
-                int houseStudent = parseInt(student[5]);
-                int flatStudent = parseInt(student[6]);
-                String genderStudent = student[7];
-
-                students.add(new Student(nameStudent, surnameStudent, ageStudent,
-                        new Address(sityStudent, streetStudent, houseStudent, flatStudent), genderStudent));
+                Address addressStudent = new Address();
+                Student student1 = new Student();
+                student1.setId(parseInt(student[0]));
+                student1.setName(student[1]);
+                student1.setSurname(student[2]);
+                student1.setAge(parseInt(student[3]));
+                student1.setGender(student[4]);
+                addressStudent.setId(parseInt(student[5]));
+                addressStudent.setSity(student[6]);
+                addressStudent.setStreet(student[7]);
+                addressStudent.setHouse(parseInt(student[8]));
+                addressStudent.setFlat(parseInt(student[9]));
+               // student1.setAddress(addressStudent);
+                students.add(student1);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -63,18 +65,20 @@ public class ReadingFiles {
             String[] str2 = data1.split("\n");
             for (String str3 : str2) {
                 String [] teacher = str3.split("-");
-                String nameTeacher = teacher[0];
-                String surnameTeacher = teacher[1];
-                int ageTeacher = parseInt(teacher[2]);
-                String sityTeacher = teacher[3];
-                String streetTeacher = teacher[4];
-                int houseTeacher = parseInt(teacher[5]);
-                int flatTeacher = parseInt(teacher[6]);
-                String genderTeacher = teacher[7];
-
-                teachers1.add(new Teacher(nameTeacher, surnameTeacher, ageTeacher,
-                        new Address(sityTeacher, streetTeacher, houseTeacher, flatTeacher), genderTeacher));
-
+                Address addressTeacher = new Address();
+                Teacher teacher1 = new Teacher();
+                teacher1.setId(parseInt(teacher[0]));
+                teacher1.setName(teacher[1]);
+                teacher1.setSurname(teacher[2]);
+                teacher1.setAge(parseInt(teacher[3]));
+                teacher1.setGender(teacher[4]);
+                addressTeacher.setId(parseInt(teacher[5]));
+                addressTeacher.setSity(teacher[6]);
+                addressTeacher.setStreet(teacher[7]);
+                addressTeacher.setHouse(parseInt(teacher[8]));
+                addressTeacher.setFlat(parseInt(teacher[9]));
+               // teacher1.setAddress(addressTeacher);
+                teachers1.add(teacher1);
             }
         } catch (IOException e) {
             e.printStackTrace();

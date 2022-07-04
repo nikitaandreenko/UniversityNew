@@ -3,18 +3,25 @@ package com.company.base;
 import com.company.model.Address;
 
 public abstract class People {
+    private int id;
     private String name;
     private String surname;
     private int age;
-    private Address address;
+
     private String gender;
 
-    public People(String name, String surname, int age, Address address, String gender) {
-        this.name = name;
-        this.surname = surname;
-        this.age = age;
-        this.address = address;
-        this.gender = gender;
+    private int address_id;
+
+
+    public People() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -44,12 +51,13 @@ public abstract class People {
             this.age = 0;
         }
     }
-    public Address getAddress() {
-        return address;
+
+    public int getAddress_id() {
+        return address_id;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress_id(int address_id) {
+        this.address_id = address_id;
     }
 
     public String getGender() {
@@ -62,12 +70,10 @@ public abstract class People {
 
     @Override
     public String toString() {
-        return "People{" +
+        return "People: " +
                 "name='" + name + '\'' +
                 ", surname='" + surname + '\'' +
                 ", age=" + age +
-                ", address=" + address +
-                ", gender='" + gender + '\'' +
-                '}';
+                ", gender='" + gender;
     }
 }

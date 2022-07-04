@@ -1,6 +1,5 @@
 package com.company.util.tests;
 
-import com.company.model.Address;
 import com.company.model.Student;
 import com.company.service.StudentService;
 import com.company.util.ReadingFiles;
@@ -9,8 +8,6 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class PeopleAgeTest {
     StudentService studentService;
     Student student;
@@ -18,7 +15,7 @@ public class PeopleAgeTest {
     @Before
     public void setUp() throws Exception {
         studentService = new StudentService();
-        studentService.addStudentsGroup(ReadingFiles.studentsFiles("students.txt"));
+        studentService.getAllStudents(ReadingFiles.studentsFiles("students.txt"));
         student = studentService.studentRepository.students.get(0);
     }
 

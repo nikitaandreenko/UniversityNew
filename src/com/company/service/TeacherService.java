@@ -3,11 +3,13 @@ package com.company.service;
 import com.company.model.Methodist;
 import com.company.model.Student;
 import com.company.model.Teacher;
+import com.company.repository.StudentRepository;
 import com.company.repository.TeacherRepository;
 
 import java.awt.image.AreaAveragingScaleFilter;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
@@ -23,16 +25,21 @@ public class TeacherService {
         teacherRepository.addTeacher(teacher);
     }
 
-    public void addTeachersGroup (ArrayList<Teacher> teachersNew){
-        teacherRepository.addTeachersGroup(teachersNew);
+    public List<Teacher> getAllTeachers(List<Teacher> teachersNew) {
+        teacherRepository.getAllTeachers(teachersNew);
+        return teacherRepository.teachers;
     }
 
-    public void deleteTeacher(Teacher teacher) {
-        teacherRepository.deleteTeacher(teacher);
+    public Teacher getByIdTeacher(int id, TeacherRepository teacherRepository) {
+        return teacherRepository.getByIdTeacher(id, teacherRepository.teachers);
     }
 
-    public void setTeacherRepository(int pos, Teacher teacher) {
-        teacherRepository.setTeacher(pos, teacher);
+    public void updateTeacher(int id, Teacher teacher) {
+        teacherRepository.updateTeacher(id, teacher);
+    }
+
+    public void deleteTeacher(int id) {
+        teacherRepository.deleteTeacher(id);
     }
 
     public int getSalaryTeacher(Teacher teacher) {
@@ -73,13 +80,17 @@ public class TeacherService {
                 );
     }
 
-    public Methodist comparator(Teacher teacher, TeacherService teacherService) {
+    public Methodist comparator(Teacher teacher, Methodist methodist) {
         Function<Teacher, Methodist> converter =
-                teacher1 -> {
-                    return new Methodist(teacher.getName(), teacher.getSurname(), teacher.getAge(),
-                            teacher.getAddress(), teacher.getGender(), teacherRepository.teachers);
+                teacher1 -> { methodist.setId(teacher1.getId());
+            methodist.setName(teacher1.getName());
+            methodist.setSurname(teacher1.getSurname());
+            methodist.setAge(teacher1.getAge());
+            methodist.setGender(teacher1.getGender());
+            methodist.setAddress_id(teacher1.getAddress_id());
+            return methodist;
                 };
-        return converter.apply(teacher);
+         return converter.apply(teacher);
     }
 
 

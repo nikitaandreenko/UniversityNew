@@ -1,16 +1,14 @@
 package com.company.model;
 
 public class Address {
+
+    private int id;
     private String sity;
     private String street;
     private int house;
     private int flat;
 
-    public Address(String sity, String street, int house, int flat) {
-        this.sity = sity;
-        this.street = street;
-        this.house = house;
-        this.flat = flat;
+    public Address() {
     }
 
     public String getSity() {
@@ -19,6 +17,14 @@ public class Address {
 
     public void setSity(String sity) {
         this.sity = sity;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getStreet() {

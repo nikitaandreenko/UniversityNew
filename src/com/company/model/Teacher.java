@@ -1,15 +1,26 @@
 package com.company.model;
 
 import com.company.base.People;
-import com.company.repository.TeacherRepository;
 
 
 public class Teacher extends People {
 
     public int salary;
 
-    public Teacher(String name, String surname, int age, Address address, String gender) {
-        super(name, surname, age, address, gender);
+    private int group_id;
+
+    public Teacher() {
+
+    }
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
     @Override
@@ -43,13 +54,13 @@ public class Teacher extends People {
     }
 
     @Override
-    public Address getAddress() {
-        return super.getAddress();
+    public int getAddress_id() {
+        return super.getAddress_id();
     }
 
     @Override
-    public void setAddress(Address address) {
-        super.setAddress(address);
+    public void setAddress_id(int address_id) {
+        super.setAddress_id(address_id);
     }
 
     @Override
@@ -62,9 +73,16 @@ public class Teacher extends People {
         super.setGender(gender);
     }
 
-    @Override
-    public String toString() {
-        return "teacher: " + super.toString();
+    public int getGroup_id() {
+        return group_id;
     }
 
+    public void setGroup_id(int group_id) {
+        this.group_id = group_id;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString();
+    }
 }

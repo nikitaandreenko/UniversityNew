@@ -6,20 +6,17 @@ import java.util.ArrayList;
 
 public class Methodist extends People {
 
-    private ArrayList<Teacher> teachers;
-
-
-    public Methodist(String name, String surname, int age, Address address, String gender, ArrayList<Teacher> teachers) {
-        super(name, surname, age, address, gender);
-        this.teachers = teachers;
+    public  Methodist (){
     }
 
-    public ArrayList<Teacher> getTeachers() {
-        return teachers;
+    @Override
+    public int getId() {
+        return super.getId();
     }
 
-    public void setTeachers(ArrayList<Teacher> teachers) {
-        this.teachers = teachers;
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
     @Override
@@ -53,13 +50,8 @@ public class Methodist extends People {
     }
 
     @Override
-    public Address getAddress() {
-        return super.getAddress();
-    }
-
-    @Override
-    public void setAddress(Address address) {
-        super.setAddress(address);
+    public void setAddress_id(int address_id) {
+        super.setAddress_id(address_id);
     }
 
     @Override
@@ -74,6 +66,6 @@ public class Methodist extends People {
 
     @Override
     public String toString() {
-        return "methodist: " + super.toString() + "teachers: " + this.teachers;
+        return "methodist: " + super.toString();
     }
 }

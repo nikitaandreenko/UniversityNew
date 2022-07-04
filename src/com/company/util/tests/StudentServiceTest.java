@@ -1,7 +1,5 @@
 package com.company.util.tests;
 
-import com.company.model.Address;
-import com.company.model.Student;
 import com.company.service.StudentService;
 import com.company.util.ReadingFiles;
 import org.junit.After;
@@ -18,7 +16,7 @@ public class StudentServiceTest {
     public void setUp() throws Exception {
 
         studentServiceAllStudents = new StudentService();
-        studentServiceAllStudents.addStudentsGroup(ReadingFiles.studentsFiles("students.txt"));
+        studentServiceAllStudents.getAllStudents(ReadingFiles.studentsFiles("students.txt"));
         studentService1 = new StudentService();
         studentService1.addStudent(studentServiceAllStudents.studentRepository.students.get(0));
         studentService1.addStudent(studentServiceAllStudents.studentRepository.students.get(1));
@@ -38,7 +36,7 @@ public class StudentServiceTest {
 
     @Test
     public void deleteStudent() {
-        studentService1.deleteStudent(studentService1.studentRepository.students.get(1));
+        studentService1.deleteStudent(studentService1.studentRepository.students.get(1).getId());
         Assert.assertNotNull(studentService1.studentRepository.students);
         Assert.assertEquals(2, studentService1.studentRepository.students.size());
         Assert.assertEquals(studentService1.studentRepository.students.get(1),

@@ -1,10 +1,10 @@
-Nik-Genson-21-New York-5 avenu-15-136-male
-Teresa-Watkinson-20-Alabama-linciln-23-16-female
-Jon-Terry-23-Manchester-Old Trafford-12-13-male
-Lara-Sarry-20-Liverpool-Etihad-24-123-female
-Aleksej-Basiljev-20-Minsk-Lenina-24-124-male
-Tatjana-Stapanova-18-Gomel-Stroiyelej-24-12-female
-Basilij-Ivanov-17-Moscow-Marksa-13-167-male
-Svetlana-Kravtsova-18-Kasan-Radugnaja-20-11-female
-Kristina-Pavlova-18-Grodno-Naberegnaja-25-67-female
-Alexej-Ivanov-19-Pinsk-Radugnaja-34-100-male
+1-Nik-Genson-21-male-1-New York-5 avenu-15-136
+2-Teresa-Watkinson-20-female-2-Alabama-linciln-23-16
+3-Jon-Terry-23-male-3-Manchester-Old Trafford-12-13
+4-Lara-Sarry-20-female-4-Liverpool-Etihad-24-123
+5-Aleksej-Basiljev-20-male-5-Minsk-Lenina-24-124
+6-Tatjana-Stapanova-18-female-6-Gomel-Stroiyelej-24-12
+7-Basilij-Ivanov-17-male-7-Moscow-Marksa-13-167
+8-Svetlana-Kravtsova-18-female-8-Kasan-Radugnaja-20-11
+9-Kristina-Pavlova-18-female-9-Grodno-Naberegnaja-25-67
+10-Alexej-Ivanov-19-male-10-Pinsk-Radugnaja-34-100
