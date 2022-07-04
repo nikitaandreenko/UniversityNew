@@ -1,7 +1,5 @@
 package com.company.util.tests;
 
-import com.company.model.Address;
-import com.company.model.Teacher;
 import com.company.service.TeacherService;
 import com.company.util.ReadingFiles;
 import org.junit.After;
@@ -22,7 +20,7 @@ public class TeacherSalaryTest {
     @Test
     public void setTeacherService() {
         teacherService = new TeacherService();
-        teacherService.addTeachersGroup(ReadingFiles.teachersFiles("teachers.txt"));
+        teacherService.getAllTeachers(ReadingFiles.teachersFiles("teachers.txt"));
         int salaryTeacher1Expected = 2000;
         teacherService.setSalaryTeacher(2, teacherService.teacherRepository.teachers.get(0));
         int salaryTeacher1actual = teacherService.getSalaryTeacher(teacherService.teacherRepository.teachers.get(0));

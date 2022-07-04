@@ -6,20 +6,21 @@ import com.company.service.StudentService;
 import java.util.ArrayList;
 
 public class Group {
+    private int groupId;
     private int name;
     private int course;
-    private ArrayList <Student> students;
-    private Teacher teacher;
     private int yearAdmission;
     private int yearGraduation;
 
-    public Group(int name, int course, ArrayList <Student> students, Teacher teacher, int yearAdmission, int yearGraduation) {
-        this.name = name;
-        this.course = course;
-        this.students = students;
-        this.teacher = teacher;
-        this.yearAdmission = yearAdmission;
-        this.yearGraduation = yearGraduation;
+    public Group() {
+    }
+
+    public int getGroupId() {
+        return groupId;
+    }
+
+    public void setGroupId(int groupId) {
+        this.groupId = groupId;
     }
 
     public int getName() {
@@ -36,22 +37,6 @@ public class Group {
 
     public void setCourse(int course) {
         this.course = course;
-    }
-
-    public ArrayList<Student> getStudents() {
-        return students;
-    }
-
-    public void setStudents(ArrayList<Student> students) {
-        this.students = students;
-    }
-
-    public Teacher getTeacher() {
-        return teacher;
-    }
-
-    public void setTeacher(Teacher teacher) {
-        this.teacher = teacher;
     }
 
     public int getYearAdmission() {
@@ -75,8 +60,6 @@ public class Group {
         return "Group{" +
                 "name=" + name +
                 ", course=" + course +
-                ", students=" + students +
-                ", teacher=" + teacher +
                 ", yearAdmission=" + yearAdmission +
                 ", yearGraduation=" + yearGraduation +
                 '}';

@@ -3,8 +3,17 @@ package com.company.model;
 import com.company.base.People;
 
 public class Student extends People implements Comparable<Student> {
-    public Student(String name, String surname, int age, Address address, String gender) {
-        super(name, surname, age, address, gender);
+    public Student() {
+    }
+
+    @Override
+    public int getId() {
+        return super.getId();
+    }
+
+    @Override
+    public void setId(int id) {
+        super.setId(id);
     }
 
     @Override
@@ -38,13 +47,13 @@ public class Student extends People implements Comparable<Student> {
     }
 
     @Override
-    public Address getAddress() {
-        return super.getAddress();
+    public int getAddress_id() {
+        return super.getAddress_id();
     }
 
     @Override
-    public void setAddress(Address address) {
-        super.setAddress(address);
+    public void setAddress_id(int address_id) {
+        super.setAddress_id(address_id);
     }
 
     @Override
@@ -57,10 +66,9 @@ public class Student extends People implements Comparable<Student> {
         super.setGender(gender);
     }
 
-
     @Override
     public String toString() {
-        return "student: " + super.toString();
+        return super.toString();
     }
 
     @Override
